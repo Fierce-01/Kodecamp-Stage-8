@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <center><h1>XYZ HOTEL</h1></center>
+    </header>
+    <main>
+        <p><b>Login Here</b></p>
+        <form method="post">
+            {% csrf_token %}
+            <div>{{ form.as_p }}</div>
+            <input type="submit" value="SignIn">
+        </form>
+        <div>Don't have an account? <span><a href="{% url 'accounts:signupview' %}">Sign Up</a></span></div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

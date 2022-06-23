@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hotel Booking Records</title>
+        <style>
+            body {
+                margin-left:100px;
+                margin-right:100px;
+                margin-bottom:100px;
+            }
+            main{
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <center>
+                <h1>XYZ HOTEL</h1>
+                <div>
+                    <a href="{% url 'home:recordview' %}"><button>Check Existing Records</button></a>
+                    <a href="{% url 'accounts:logoutview' %}"><button>Log Out</button></a>
+                </div>
+            </center>
+        </header>
+        <main>
+            <center><h2>Book Hotel Room</h2></center>
+            <form action="{% url 'home:bookroomview' %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <label for="Roomnumber">Room number</label><br>
+                    <input type="text" name="Roomnumber" id="Roomnumber">
+                </div>
+                <div>
+                    <label for="Amountpaid">Amount Paid in Naira</label><br>
+                    <input type="number" name="Amountpaid" id="Amountpaid">
+                </div>
+                <div>
+                    <label for="Occupantname">Occupant name</label><br>
+                    <input type="text" name="Occupantname" id="Occupantname">
+                </div>
+                <div>
+                    <label for="Occupantemail">Occupant Email</label><br>
+                    <input type="email" name="Occupantemail" id="Occupantemail">
+                </div>
+                <div>
+                    <label for="Occupantoccupation">Occupant Occupation</label><br>
+                    <input type="text" name="Occupantoccupation" id="Occupantoccupation">
+                </div>
+                <div>
+                    <label for="NightNumber">Number of night</label><br>
+                    <input type="number" name="NightNumber" id="NightNumber">
+                </div>
+                <div>
+                    <label for="Startdate">Start Date</label><br>
+                    <input type="date" name="Startdate" id="Startdate">
+                </div>
+                <div>
+                    <label for="Enddate">End Date</label><br>
+                    <input type="date" name="Enddate" id="Enddate">
+                </div>
+                <div>
+                    <input type="submit" value="Book Room" id="submit">
+                </div>
+            </form>
+        </main>
+        <footer></footer>
+    </body>
+</html>

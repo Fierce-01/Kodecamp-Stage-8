@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin-left:100px;
+            margin-right:100px;
+            margin-bottom:100px;
+        }
+        main{
+            margin-top: 40px;
+        }
+        div {
+            border: 1px solid #000000;
+            border-radius: 8px;
+            float: left;
+            margin-right: 20px;
+            margin-top: 20px;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <center>
+            <h1>XYZ HOTEL</h1>
+            <div>
+                <a href="{% url 'home:bookroomview' %}"><button>Book a room</button></a>
+                <a href="{% url 'accounts:logoutview' %}"><button>Log Out</button></a>
+            </div>
+        </center>
+    </header>
+    <main>
+        <center><h2>Hotel Booking Records</h2></center>
+        {% for Hotel_Room_Application_Record in posts  %}
+        <a href="{% url 'home:detailview' Hotel_Room_Application_Record.id %}">
+            <div>
+                <h1>Name: <span> {{ Hotel_Room_Application_Record.Occupant_Name }} </span></h1>
+                <h1>Occupation: <span> {{Hotel_Room_Application_Record.Occupant_occupation }} </span></h1>
+                <h1>Room Number: <span> {{Hotel_Room_Application_Record.Room_number}} </span></h1>
+                <h1>Time Booked: <span> {{Hotel_Room_Application_Record.timestamp}} </span></h1>
+            </div>
+        </a>
+        {% endfor %}
+    </main>
+</body>
+</html>
